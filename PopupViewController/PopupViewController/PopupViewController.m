@@ -72,7 +72,7 @@
     });
 }
 
-- (void) animatePopupView
+- (void)animatePopupView
 {
     self.popupAlertView.transform = CGAffineTransformMakeScale(1.1, 1.1);
     self.popupAlertView.alpha = 0;
@@ -85,6 +85,25 @@
     }];
 }
 
+
+
+
+-(void)dismiss {
+
+    if(self.popupAlertView) {
+        self.popupBgImageView.alpha = 0.0;
+        self.popupAlertView.transform = CGAffineTransformMakeScale(1., 1.);
+        self.popupAlertView.alpha = 0.0;
+        [self.view removeFromSuperview];
+    }
+}
+
+- (void)dismissWithAnimation {
+    if(self.popupAlertView) {
+        [self closePopupView];
+    }
+}
+
 -(void)viewDidLayoutSubviews
 {
     self.popupAlertView.layer.anchorPoint = CGPointMake(.5, .5);
@@ -92,7 +111,7 @@
                                                      self.referenceView.bounds.size.height / 2);
 }
 
-- (void) closePopupView
+- (void)closePopupView
 {
     [UIView animateWithDuration:.3 animations:^{
         self.popupBgImageView.alpha = 0.0;

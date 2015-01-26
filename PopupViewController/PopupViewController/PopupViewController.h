@@ -20,5 +20,8 @@ typedef enum{
 @property(nonatomic,assign) BOOL showCloseButton;
 
 - (void)showInView:(UIView *)view title:(NSString *)title message:(NSString *)message animated:(BOOL)animated;
+- (void)dismiss;
+- (void)dismissWithAnimation;
+
 
 @end
